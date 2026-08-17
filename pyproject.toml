@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pensionos-data-onboarding"
+version = "0.1.0"
+description = "PensionOS Data Onboarding and Resolution Factory"
+requires-python = ">=3.11"
+readme = "README.md"
+dependencies = [
+  "anyio>=3.4,<4",
+  "openpyxl>=3.1,<4",
+]
+
+[project.optional-dependencies]
+dev = [
+  "fastapi==0.95.2",
+  "pytest>=8.0",
+]
+backend = [
+  "fastapi==0.95.2",
+  "uvicorn[standard]==0.22.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+include = ["data_onboarding*"]
